@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shalu 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --pink: #ff6b9d;
+    --gold: #ffd700;
+    --lavender: #c084fc;
+    --rose: #fb7185;
+    --cream: #fff8f0;
+    --deep: #1a0a2e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ─── STARS BG ─── */
+  #stars {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse at 20% 50%, #1a0a2e 0%, #0d0618 100%);
+    overflow: hidden;
+  }
+  #stars::before, #stars::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,215,0,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 45% 35%, rgba(255,107,157,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 15%, rgba(192,132,252,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 55%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 95% 30%, rgba(255,255,255,0.4) 0%, transparent 100%);
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+  #stars::after {
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 55%, rgba(255,215,0,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 75%, rgba(192,132,252,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 88%, rgba(255,107,157,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 12% 65%, rgba(255,255,255,0.4) 0%, transparent 100%);
+    animation: twinkle 5s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+
+  /* ─── SCROLL CONTAINER ─── */
+  #scroll-container {
+    position: relative; z-index: 1;
+  }
+
+  /* ─── SECTION STYLES ─── */
+  .section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 20px;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-sparkle {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  .hero-sparkle:nth-child(2) { animation-delay: 0.5s; }
+  .hero-sparkle:nth-child(3) { animation-delay: 1s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    background: linear-gradient(135deg, #ffd700, #ff6b9d, #c084fc, #ffd700);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite, popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+    line-height: 1.2;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.3) rotate(-5deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    color: #ffd700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.3s both;
+  }
+
+  .scroll-hint {
+    margin-top: 30px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    animation: pulse 2s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .scroll-arrow {
+    font-size: 1.5rem;
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* ─── MESSAGE SECTIONS ─── */
+  .msg-card {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+    transition: opacity 0.7s cubic-bezier(0.34,1.56,0.64,1), transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+    padding: 40px 30px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .msg-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .msg-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,107,157,0.08), rgba(192,132,252,0.08));
+    border: 1px solid rgba(255,107,157,0.2);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .msg-number {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--gold), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .msg-emoji {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 12px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .msg-text {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .msg-text strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ─── CAKE SECTION ─── */
+  #cake-section {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .cake-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    color: var(--gold);
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.8s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .cake-title.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── CAKE SVG ─── */
+  .cake-wrap {
+    position: relative;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.3s;
+  }
+  .cake-wrap.visible { opacity: 1; transform: scale(1); }
+
+  #cake-svg {
+    width: min(320px, 85vw);
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(255,107,157,0.4));
+  }
+
+  /* Flames */
+  .flame {
+    transform-origin: center bottom;
+    animation: flicker 0.4s ease-in-out infinite alternate;
+  }
+  .flame:nth-child(odd) { animation-direction: alternate-reverse; animation-duration: 0.35s; }
+  .flame-blown { display: none; }
+
+  @keyframes flicker {
+    0% { transform: scaleX(1) scaleY(1) rotate(-2deg); }
+    100% { transform: scaleX(0.85) scaleY(1.1) rotate(2deg); }
+  }
+
+  /* ─── SWIPE HINT ─── */
+  .swipe-hint {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em;
+    animation: pulse 2s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease 1s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+  }
+  .swipe-hint.visible { opacity: 1; }
+  .swipe-icon { font-size: 1.3rem; animation: swipeAnim 1.5s ease-in-out infinite; }
+  @keyframes swipeAnim {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(12px); }
+  }
+
+  /* ─── CONFETTI OVERLAY ─── */
+  #confetti-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    pointer-events: none;
+    display: none;
+  }
+  #confetti-overlay.active { display: block; }
+
+  .confetti-piece {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+    top: -20px;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ─── FINAL MESSAGE POPUP ─── */
+  #final-msg {
+    position: fixed; inset: 0; z-index: 101;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(10, 3, 20, 0.88);
+    backdrop-filter: blur(12px);
+    gap: 20px;
+    padding: 30px;
+  }
+  #final-msg.active { display: flex; }
+
+  .final-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 11vw, 5rem);
+    background: linear-gradient(135deg, #ffd700, #ff6b9d, #c084fc);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite, popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+    line-height: 1.2;
+  }
+
+  .final-sub {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    color: rgba(255,255,255,0.8);
+    animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.3s both;
+    line-height: 1.6;
+  }
+
+  .final-emojis {
+    font-size: 2.5rem;
+    animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.5s both, float 3s ease-in-out infinite 1.3s;
+    letter-spacing: 0.2em;
+  }
+
+  /* ─── ENVELOPE GIFT inside popup ─── */
+  #envelope-wrap {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px;
+    animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.6s both;
+  }
+  #envelope-wrap.show { display: flex; }
+
+  .gift-label {
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.04em;
+  }
+
+  .envelope-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff6b9d, #c084fc);
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+    text-decoration: none;
+    box-shadow: 0 0 30px rgba(255,107,157,0.5), 0 0 60px rgba(192,132,252,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    animation: heartbeat 1.8s ease-in-out infinite;
+  }
+  .envelope-btn:hover, .envelope-btn:active {
+    transform: scale(1.08);
+    box-shadow: 0 0 50px rgba(255,107,157,0.7), 0 0 80px rgba(192,132,252,0.3);
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    14% { transform: scale(1.05); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.05); }
+    56% { transform: scale(1); }
+  }
+
+  .tap-close {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 12px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* ─── FLOATING PETALS ─── */
+  .petal {
+    position: fixed;
+    pointer-events: none;
+    z-index: 2;
+    font-size: 1rem;
+    animation: petalFloat linear infinite;
+    opacity: 0.4;
+  }
+  @keyframes petalFloat {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink), var(--gold), var(--lavender));
+    z-index: 50;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  #step-counter {
+    position: fixed;
+    top: 12px; right: 16px;
+    z-index: 50;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.3s;
+  }
+
+  @keyframes smokeRise {
+    0% { transform: translateY(0) scale(1); opacity: 0.5; }
+    100% { transform: translateY(-30px) scale(3); opacity: 0; }
+  }
+  .smoke-puff { animation: smokeRise 1.5s ease-out infinite; }
+  .smoke-puff:nth-child(2) { animation-delay: 0.3s; }
+  .smoke-puff:nth-child(3) { animation-delay: 0.6s; }
+
+  .deco-star {
+    fill: #ffd700;
+    animation: twinkle 2s ease-in-out infinite alternate;
+  }
+</style>
+</head>
+<body>
+
+<div id="stars"></div>
+<div id="progress-bar"></div>
+<div id="step-counter">0 / 21</div>
+
+<!-- Floating petals -->
+<div id="petals-container"></div>
+
+<!-- CONFETTI -->
+<div id="confetti-overlay"></div>
+
+<!-- FINAL MESSAGE POPUP (shown after candles blown) -->
+<div id="final-msg">
+  <div class="final-emojis">🎉🎂✨🎊💖</div>
+  <div class="final-title">Happy Birthday,<br>my love! 🌸</div>
+  <div class="final-sub">
+    Three years with you and I still fall for you<br>
+    every single day. You are my whole world. 🐛🍎<br>
+    Here's to forever, Mwuthee. 💛
+  </div>
+
+  <!-- Envelope / Gift Link -->
+  <div id="envelope-wrap">
+    <div class="gift-label">✉️ A little something just for you…</div>
+    <a class="envelope-btn" href="https://drive.google.com/file/d/1qf39ZvhhyhoB65kgDor4ucQ9SrOIBxEn/preview" target="_blank" rel="noopener">
+      <span>💌</span>
+      <span>Open Your Gift</span>
+      <span>🎁</span>
+    </a>
+  </div>
+
+  <div class="tap-close" id="tap-close-hint">tap anywhere to close</div>
+</div>
+
+<div id="scroll-container">
+
+  <!-- HERO -->
+  <section class="section" id="hero">
+    <div class="hero-sparkle">✨</div>
+    <div>
+      <div class="hero-title">Happy Birthday</div>
+      <div class="hero-name">my love 🌸</div>
+    </div>
+    <div class="hero-sparkle">🌟</div>
+    <div class="scroll-hint">
+      <span>scroll for a surprise</span>
+      <span class="scroll-arrow">↓</span>
+    </div>
+  </section>
+
+  <!-- 21 MESSAGE SECTIONS -->
+
+  <!-- 1 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">1</span>
+    <span class="msg-emoji">🌸</span>
+    <p class="msg-text"><strong>Happy birthday, my love.</strong><br>Today the whole universe pauses<br>just to celebrate <strong>you.</strong></p>
+  </div></section>
+
+  <!-- 2 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">2</span>
+    <span class="msg-emoji">💫</span>
+    <p class="msg-text">Thank you for <strong>coming into my life.</strong><br>You are the answer to every wish<br>I never knew how to make.</p>
+  </div></section>
+
+  <!-- 3 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">3</span>
+    <span class="msg-emoji">🌺</span>
+    <p class="msg-text">You are <strong>the best thing</strong><br>that has ever happened to me.<br>Truly. Without question. Always.</p>
+  </div></section>
+
+  <!-- 4 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">4</span>
+    <span class="msg-emoji">🦋</span>
+    <p class="msg-text">You mean <strong>everything</strong> to me,<br><strong>Mwuthee.</strong><br>Everything. 💛</p>
+  </div></section>
+
+  <!-- 5 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">5</span>
+    <span class="msg-emoji">🐛</span>
+    <p class="msg-text">Like a caterpillar that becomes<br>something breathtaking —<br>you just keep getting <strong>more beautiful.</strong></p>
+  </div></section>
+
+  <!-- 6 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">6</span>
+    <span class="msg-emoji">🍎</span>
+    <p class="msg-text">You are my apple —<br>the sweetest, most <strong>wholesome</strong> thing<br>I get to have in my life.</p>
+  </div></section>
+
+  <!-- 7 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">7</span>
+    <span class="msg-emoji">🌙</span>
+    <p class="msg-text">Three years together —<br>and I would choose you again<br>in every single <strong>lifetime.</strong></p>
+  </div></section>
+
+  <!-- 8 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">8</span>
+    <span class="msg-emoji">💎</span>
+    <p class="msg-text">You are not just <strong>rare</strong> —<br>you are irreplaceable.<br>There is only one you. 🌟</p>
+  </div></section>
+
+  <!-- 9 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">9</span>
+    <span class="msg-emoji">🌹</span>
+    <p class="msg-text">Every day with you feels like<br>the best day I have ever had.<br>You <strong>make ordinary magic.</strong></p>
+  </div></section>
+
+  <!-- 10 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">10</span>
+    <span class="msg-emoji">🎊</span>
+    <p class="msg-text"><strong>Halfway there!</strong> 10 down, 11 to go.<br>You mean the world to me —<br>and the world is not enough. 🥰</p>
+  </div></section>
+
+  <!-- 11 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">11</span>
+    <span class="msg-emoji">🌈</span>
+    <p class="msg-text">You fill every grey moment<br>with colour, warmth, and <strong>light.</strong><br>I am so lucky it is you.</p>
+  </div></section>
+
+  <!-- 12 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">12</span>
+    <span class="msg-emoji">🍰</span>
+    <p class="msg-text">You deserve every sweet thing —<br>every joy, every dream,<br>every single <strong>happy moment.</strong></p>
+  </div></section>
+
+  <!-- 13 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">13</span>
+    <span class="msg-emoji">✨</span>
+    <p class="msg-text">Some people light up a room.<br>You light up <strong>my entire world</strong><br>without even trying.</p>
+  </div></section>
+
+  <!-- 14 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">14</span>
+    <span class="msg-emoji">🎈</span>
+    <p class="msg-text">Three years ago you changed<br>the whole story of my life.<br>I am <strong>so glad you did.</strong></p>
+  </div></section>
+
+  <!-- 15 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">15</span>
+    <span class="msg-emoji">💖</span>
+    <p class="msg-text">Your kindness, your strength,<br>your laugh — the world needs<br><strong>all of it. All of you.</strong></p>
+  </div></section>
+
+  <!-- 16 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">16</span>
+    <span class="msg-emoji">🌠</span>
+    <p class="msg-text">When I think about the future,<br>the very first thing I picture<br>is <strong>you, right beside me.</strong></p>
+  </div></section>
+
+  <!-- 17 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">17</span>
+    <span class="msg-emoji">🌻</span>
+    <p class="msg-text">Like a sunflower, you always<br>turn toward the light — and you<br><strong>become the light</strong> for me.</p>
+  </div></section>
+
+  <!-- 18 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">18</span>
+    <span class="msg-emoji">🦄</span>
+    <p class="msg-text">You are the kind of person<br>that people spend their whole lives<br>hoping to find. I <strong>found you.</strong></p>
+  </div></section>
+
+  <!-- 19 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">19</span>
+    <span class="msg-emoji">🎀</span>
+    <p class="msg-text">Almost there — just like<br>you keep getting closer to<br>every <strong>dream you deserve.</strong></p>
+  </div></section>
+
+  <!-- 20 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">20</span>
+    <span class="msg-emoji">🥂</span>
+    <p class="msg-text"><strong>One more scroll!</strong><br>Here's to 21 years of you<br>being the most amazing person alive. 🌟</p>
+  </div></section>
+
+  <!-- 21 -->
+  <section class="section msg-sec"><div class="msg-card">
+    <span class="msg-number">21</span>
+    <span class="msg-emoji">🎂</span>
+    <p class="msg-text"><strong>Happy birthday, my love.</strong><br>Twenty-one looks so good on you.<br>Now go blow out those candles — <strong>Chiku</strong> says happy birthday! 👇</p>
+  </div></section>
+
+  <!-- CAKE SECTION -->
+  <section class="section" id="cake-section">
+    <div class="cake-title" id="cake-title">Make a Wish! 🌟</div>
+
+    <div class="cake-wrap" id="cake-wrap">
+      <svg id="cake-svg" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="plateGrad" cx="50%" cy="50%">
+            <stop offset="0%" stop-color="#ffe0b2"/>
+            <stop offset="100%" stop-color="#ffb74d"/>
+          </radialGradient>
+          <radialGradient id="cakeBot" cx="50%" cy="30%">
+            <stop offset="0%" stop-color="#f8bbd0"/>
+            <stop offset="100%" stop-color="#e91e8c"/>
+          </radialGradient>
+          <radialGradient id="cakeMid" cx="50%" cy="30%">
+            <stop offset="0%" stop-color="#ce93d8"/>
+            <stop offset="100%" stop-color="#8e24aa"/>
+          </radialGradient>
+          <radialGradient id="cakeTop" cx="50%" cy="30%">
+            <stop offset="0%" stop-color="#fff9c4"/>
+            <stop offset="100%" stop-color="#f9a825"/>
+          </radialGradient>
+          <radialGradient id="flameGrad" cx="50%" cy="70%">
+            <stop offset="0%" stop-color="#fff176"/>
+            <stop offset="50%" stop-color="#ffa726"/>
+            <stop offset="100%" stop-color="#e53935"/>
+          </radialGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- PLATE -->
+        <ellipse cx="150" cy="360" rx="120" ry="12" fill="url(#plateGrad)" opacity="0.6"/>
+
+        <!-- BOTTOM TIER -->
+        <rect x="50" y="280" width="200" height="75" rx="10" fill="url(#cakeBot)"/>
+        <ellipse cx="150" cy="280" rx="100" ry="12" fill="#f48fb1"/>
+        <ellipse cx="150" cy="355" rx="100" ry="8" fill="#c2185b" opacity="0.5"/>
+        <circle cx="90" cy="318" r="6" fill="#fff" opacity="0.7"/>
+        <circle cx="120" cy="308" r="5" fill="#ffd700" opacity="0.8"/>
+        <circle cx="150" cy="318" r="6" fill="#fff" opacity="0.7"/>
+        <circle cx="180" cy="308" r="5" fill="#ffd700" opacity="0.8"/>
+        <circle cx="210" cy="318" r="6" fill="#fff" opacity="0.7"/>
+        <path d="M 60 280 Q 65 270 70 280 Q 75 268 80 280 Q 85 270 90 280" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+        <path d="M 200 280 Q 205 270 210 280 Q 215 268 220 280 Q 225 270 230 280" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+        <!-- MIDDLE TIER -->
+        <rect x="80" y="195" width="140" height="90" rx="10" fill="url(#cakeMid)"/>
+        <ellipse cx="150" cy="195" rx="70" ry="10" fill="#ba68c8"/>
+        <ellipse cx="150" cy="285" rx="70" ry="6" fill="#6a1b9a" opacity="0.5"/>
+        <circle cx="110" cy="235" r="5" fill="#fff" opacity="0.7"/>
+        <circle cx="140" cy="225" r="4" fill="#ffd700" opacity="0.8"/>
+        <circle cx="170" cy="235" r="5" fill="#fff" opacity="0.7"/>
+        <circle cx="200" cy="225" r="4" fill="#ffd700" opacity="0.8"/>
+        <path d="M 85 195 Q 90 185 95 195 Q 100 183 105 195" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.6"/>
+        <path d="M 185 195 Q 190 183 195 195 Q 200 185 205 195" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.6"/>
+
+        <!-- TOP TIER -->
+        <rect x="105" y="130" width="90" height="70" rx="10" fill="url(#cakeTop)"/>
+        <ellipse cx="150" cy="130" rx="45" ry="8" fill="#fff9c4"/>
+        <ellipse cx="150" cy="200" rx="45" ry="5" fill="#f57f17" opacity="0.4"/>
+        <path d="M 110 130 Q 115 120 120 130 Q 125 118 130 130" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <path d="M 160 130 Q 165 118 170 130 Q 175 120 180 130" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+        <!-- "21" text on cake -->
+        <text x="150" y="178" text-anchor="middle" font-family="Dancing Script, cursive" font-size="36" fill="#c2185b" font-weight="700" filter="url(#glow)" opacity="0.9">21</text>
+
+        <!-- CANDLES GROUP -->
+        <g id="candles-group">
+          <rect x="128" y="100" width="10" height="32" rx="4" fill="#ff6b9d"/>
+          <rect x="128" y="100" width="10" height="8" rx="2" fill="#ffcdd2" opacity="0.6"/>
+          <rect x="145" y="95" width="10" height="37" rx="4" fill="#ce93d8"/>
+          <rect x="145" y="95" width="10" height="8" rx="2" fill="#f3e5f5" opacity="0.6"/>
+          <rect x="162" y="100" width="10" height="32" rx="4" fill="#ffd700"/>
+          <rect x="162" y="100" width="10" height="8" rx="2" fill="#fffde7" opacity="0.6"/>
+          <line x1="133" y1="100" x2="133" y2="95" stroke="#555" stroke-width="1.5"/>
+          <line x1="150" y1="95" x2="150" y2="90" stroke="#555" stroke-width="1.5"/>
+          <line x1="167" y1="100" x2="167" y2="95" stroke="#555" stroke-width="1.5"/>
+
+          <!-- FLAMES -->
+          <g class="flame" id="flame1">
+            <ellipse cx="133" cy="89" rx="5" ry="8" fill="url(#flameGrad)" filter="url(#glow)"/>
+            <ellipse cx="133" cy="91" rx="2.5" ry="4" fill="#fff176" opacity="0.8"/>
+          </g>
+          <g class="flame" id="flame2">
+            <ellipse cx="150" cy="84" rx="5" ry="8" fill="url(#flameGrad)" filter="url(#glow)"/>
+            <ellipse cx="150" cy="86" rx="2.5" ry="4" fill="#fff176" opacity="0.8"/>
+          </g>
+          <g class="flame" id="flame3">
+            <ellipse cx="167" cy="89" rx="5" ry="8" fill="url(#flameGrad)" filter="url(#glow)"/>
+            <ellipse cx="167" cy="91" rx="2.5" ry="4" fill="#fff176" opacity="0.8"/>
+          </g>
+
+          <!-- Smoke (hidden until blown) -->
+          <g id="smoke-group" style="display:none;">
+            <circle cx="133" cy="88" r="3" fill="rgba(200,200,200,0.5)" class="smoke-puff"/>
+            <circle cx="150" cy="83" r="3" fill="rgba(200,200,200,0.5)" class="smoke-puff"/>
+            <circle cx="167" cy="88" r="3" fill="rgba(200,200,200,0.5)" class="smoke-puff"/>
+          </g>
+        </g>
+
+        <!-- Stars decoration -->
+        <text x="55" y="160" font-size="18" opacity="0.6" class="deco-star">✦</text>
+        <text x="235" y="155" font-size="14" opacity="0.5" class="deco-star">✦</text>
+        <text x="60" y="230" font-size="12" opacity="0.4" class="deco-star">✦</text>
+        <text x="230" y="240" font-size="16" opacity="0.5" class="deco-star">✦</text>
+      </svg>
+    </div>
+
+    <div class="swipe-hint" id="swipe-hint">
+      <span class="swipe-icon">👆</span>
+      <span>Swipe the candles to blow them out!</span>
+    </div>
+  </section>
+
+</div><!-- /scroll-container -->
+
+<script>
+// ─── INTERSECTION OBSERVER for message cards ───
+const cards = document.querySelectorAll('.msg-card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.35 });
+cards.forEach(c => observer.observe(c));
+
+// ─── CAKE SECTION OBSERVER ───
+const cakeTitle = document.getElementById('cake-title');
+const cakeWrap = document.getElementById('cake-wrap');
+const swipeHint = document.getElementById('swipe-hint');
+const cakeObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      cakeTitle.classList.add('visible');
+      cakeWrap.classList.add('visible');
+      setTimeout(() => swipeHint.classList.add('visible'), 1200);
+    }
+  });
+}, { threshold: 0.3 });
+cakeObs.observe(document.getElementById('cake-section'));
+
+// ─── PROGRESS BAR ───
+const progressBar = document.getElementById('progress-bar');
+const stepCounter = document.getElementById('step-counter');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docH = document.body.scrollHeight - window.innerHeight;
+  const pct = Math.min((scrollTop / docH) * 100, 100);
+  progressBar.style.width = pct + '%';
+  let visible = 0;
+  cards.forEach(c => { if (c.classList.contains('visible')) visible++; });
+  stepCounter.textContent = Math.min(visible, 21) + ' / 21';
+});
+
+// ─── FLOATING PETALS ───
+const petalEmojis = ['🌸', '🌺', '✨', '💫', '🌟', '💖', '🦋'];
+const petalContainer = document.getElementById('petals-container');
+for (let i = 0; i < 12; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.animationDuration = (8 + Math.random() * 10) + 's';
+  p.style.animationDelay = (Math.random() * 15) + 's';
+  p.style.fontSize = (0.7 + Math.random() * 0.8) + 'rem';
+  petalContainer.appendChild(p);
+}
+
+// ─── CANDLE BLOW / SWIPE ───
+let candlesBlown = false;
+const cakeSvg = document.getElementById('cake-svg');
+const flames = [
+  document.getElementById('flame1'),
+  document.getElementById('flame2'),
+  document.getElementById('flame3')
+];
+const smokeGroup = document.getElementById('smoke-group');
+
+function blowCandles() {
+  if (candlesBlown) return;
+  candlesBlown = true;
+
+  flames.forEach((f, i) => {
+    setTimeout(() => {
+      f.style.transition = 'opacity 0.3s, transform 0.3s';
+      f.style.opacity = '0';
+      f.style.transform = 'scale(0.1)';
+      setTimeout(() => f.style.display = 'none', 300);
+    }, i * 150);
+  });
+
+  setTimeout(() => {
+    smokeGroup.style.display = 'block';
+    swipeHint.style.opacity = '0';
+  }, 500);
+
+  setTimeout(() => {
+    launchConfetti();
+    setTimeout(showFinal, 1000);
+  }, 800);
+}
+
+// Touch/swipe on cake
+let touchStartX = 0, touchStartY = 0;
+cakeSvg.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+cakeSvg.addEventListener('touchend', e => {
+  const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
+  const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+  if (dx > 30 || dy > 30) blowCandles();
+}, { passive: true });
+
+cakeSvg.addEventListener('click', () => {
+  if (!candlesBlown) blowCandles();
+});
+
+// ─── CONFETTI ───
+function launchConfetti() {
+  const overlay = document.getElementById('confetti-overlay');
+  overlay.classList.add('active');
+  const colors = ['#ff6b9d', '#ffd700', '#c084fc', '#fb7185', '#67e8f9', '#86efac', '#fff'];
+  for (let i = 0; i < 120; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width = (6 + Math.random() * 8) + 'px';
+    piece.style.height = (6 + Math.random() * 8) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    piece.style.animationDuration = (2 + Math.random() * 2.5) + 's';
+    piece.style.animationDelay = (Math.random() * 1) + 's';
+    overlay.appendChild(piece);
+  }
+  setTimeout(() => {
+    overlay.classList.remove('active');
+    overlay.innerHTML = '';
+  }, 5000);
+}
+
+// ─── FINAL MESSAGE (popup after candles blown) ───
+function showFinal() {
+  const final = document.getElementById('final-msg');
+  const envelopeWrap = document.getElementById('envelope-wrap');
+  final.classList.add('active');
+
+  // Show the envelope gift link after a short delay
+  setTimeout(() => {
+    envelopeWrap.classList.add('show');
+  }, 800);
+
+  // Clicking anywhere on the popup closes it (but envelope link still works)
+  final.addEventListener('click', (e) => {
+    // Don't close if they clicked the envelope link
+    if (e.target.closest('.envelope-btn')) return;
+    final.classList.remove('active');
+  });
+}
+</script>
+</body>
+</html>
